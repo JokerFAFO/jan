@@ -5,9 +5,10 @@ import { ChatCompletionRole, MessageStatus, ThreadMessage } from '@janhq/core'
 import hljs from 'highlight.js'
 
 import { useAtomValue } from 'jotai'
-import { Marked, Renderer } from 'marked'
+import { Marked, Renderer, use } from 'marked'
 
 import { markedHighlight } from 'marked-highlight'
+import markedKatex from 'marked-katex-extension'
 
 import { twMerge } from 'tailwind-merge'
 
@@ -31,6 +32,7 @@ const SimpleTextMessage: React.FC<ThreadMessage> = (props) => {
   const clipboard = useClipboard({ timeout: 1000 })
 
   const marked: Marked = new Marked(
+    markedKatex({ displayMode: true, macros: true, throwOnError: false }),
     markedHighlight({
       langPrefix: 'hljs',
       highlight(code, lang) {

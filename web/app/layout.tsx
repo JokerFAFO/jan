@@ -6,6 +6,8 @@ import Providers from '@/containers/Providers'
 
 import '@/styles/main.scss'
 
+import 'katex/dist/katex.min.css'
+
 export const metadata: Metadata = {
   title: 'Jan',
   description:
