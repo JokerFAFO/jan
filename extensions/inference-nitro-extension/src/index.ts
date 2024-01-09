@@ -248,7 +248,7 @@ export default class JanInferenceNitroExtension implements InferenceExtension {
         const messageContent: ThreadContent = {
           type: ContentType.Text,
           text: {
-            value: "Error occurred: " + err.message,
+            value: `Something went wrong. If this issue persists please help check troubleshooting guide at ${TROUBLESHOOTING_URL}`,
             annotations: [],
           },
         };
